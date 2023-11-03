@@ -33,7 +33,7 @@
 				<h3></h3>
 				<p></p>
 				<p><b>상품 코드 : <%=product.getProductId() %></b><span class="badge badge-danger"></span></p>
-				<p><b>제조사 : <%=product.getMenufacturer() %></b></p>
+				<p><b>제조사 : <%=product.getManufacturer() %></b></p>
 				<p><b>분류 : <%=product.getCategory() %></b></p>
 				<p><b>재고수 : <%=product.getUnitsInStock() %></b></p>
 				<h4><%=product.getUnitPrice() %>원</h4>

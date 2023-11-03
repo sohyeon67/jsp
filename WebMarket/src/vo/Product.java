@@ -5,7 +5,7 @@ public class Product {
 	private String pname;			// 상품명
 	private Integer unitPrice;		// 상품 가격
 	private String description;		// 상품 설명
-	private String menufacturer;	// 제조사
+	private String manufacturer;	// 제조사
 	private String category;		// 카테고리(분류)
 	private long unitsInStock;		// 재고수
 	private String condition;		// 신상품 or 중고품 or 재생품
@@ -43,11 +43,11 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getMenufacturer() {
-		return menufacturer;
+	public String getManufacturer() {
+		return manufacturer;
 	}
-	public void setMenufacturer(String menufacturer) {
-		this.menufacturer = menufacturer;
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 	public String getCategory() {
 		return category;
