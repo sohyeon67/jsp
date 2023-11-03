@@ -36,28 +36,53 @@ public class IndexRepository {
       
       // 각 챕터의 소스 파일명들
       String[][] sourceArr = { 
-    		{ // chap01
+    		{ // ch01
     			"welcome.jsp"
     		},
-            { // chap02
+            { // ch02
     			"scripting.jsp", 
     			"declaration01.jsp", "declaration02.jsp", "declaration03.jsp", 
     			"scriptlet01.jsp", "scriptlet02.jsp",
     			"expression01.jsp", "expression02.jsp",
     			"ch02_test.jsp"
 	    	},
-            { "" },                            // chap03
-            { "" },                            // chap04
-            { "" },                            // chap05
-            { "" },                            // chap06
-            { "" },                            // chap07
-            { "" },                            // chap08
-            { "" },                            // chap10
-            { "" },                            // chap11
-            { "" },                            // chap12
-            { "" },                            // chap13
-            { "" },                            // chap14
-            { "" }                             // chap17
+            { 
+	    		"page_buffer.jsp", "page_contentType.jsp", "page_contentTypeXml.jsp" ,
+	    		"page_errorPage.jsp", "page_errorPage_error.jsp", "page_import.jsp",
+	    		"page_info.jsp", "page_isELIgnored.jsp", "page_isErrorPage.jsp",
+	    		"page_isErrorPage_error.jsp", "include01.jsp", "include01_header.jsp",
+	    		"include02.jsp", "include02_header.jsp", "include02_footer.jsp",
+	    		"taglib.jsp", "ch03_test.jsp"
+	    	},                            // ch03
+            { 
+	    		"-" 
+            },                            // ch04
+            { 
+            	"request01.jsp", "request01_process.jsp", "request02.jsp", "request03.jsp",
+            	"response01.jsp", "response01_process.jsp", "response01_success.jsp",
+            	"response01_failed.jsp", "response02.jsp", "response03.jsp",
+            	"out01.jsp", "out02.jsp", "out02_process.jsp", "ch05_test.jsp",
+            	"ch05_test_process.jsp"
+            },                            // ch05
+            { 
+            	"form01.jsp", "form02.jsp", "form03.jsp", "form03_process.jsp",
+            	"form04.jsp", "form04_process.jsp", "form05.jsp", "form05_process.jsp",
+            	"ch06_test.jsp", "ch06_test_process.jsp"
+            },                            // ch06
+            { 
+            	"fileupload03.jsp", "fileupload03_process.jsp",
+            	"fileupload04.jsp", "fileupload04_process.jsp",
+            	"ch07_test_signin.jsp", "ch07_test_signin_process.jsp",
+            	"ch07_test_signup.jsp", "ch07_test_signup_process.jsp",
+            	"ch07_test_memberList.jsp"
+            },                            // ch07
+            { "" },                            // ch08
+            { "" },                            // ch10
+            { "" },                            // ch11
+            { "" },                            // ch12
+            { "" },                            // ch13
+            { "" },                            // ch14
+            { "" }                             // ch17
       };
       
       // 최종 indexList에 추가
