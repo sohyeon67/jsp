@@ -35,25 +35,33 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-					<!-- 
-						1. 게시판 등록 페이지를 작성해주세요.
+						<!-- 
+							1. 게시판 등록 페이지를 작성해주세요.
+							
+							[출력 예]
+							
+							게시글 등록
+							─────────────────────────────
+							제목 : 
+							작성자 : 
+							내용 :
+							─────────────────────────────
+							첨부파일 : [파일 선택 ]
+							─────────────────────────────
+							[ 등록  ] [ 목록  ]
+							
+							2. 등록 버튼 클릭 시, 게시글 등록(boardInsert.jsp)을 진행해주세요.
+							3. 목록 버튼 클릭 시, 게시판 목록 페이지(boardList.jsp)로 이동해주세요
 						
-						[출력 예]
-						
-						게시글 등록
-						─────────────────────────────
-						제목 : 
-						작성자 : 
-						내용 :
-						─────────────────────────────
-						첨부파일 : [파일 선택 ]
-						─────────────────────────────
-						[ 등록  ] [ 목록  ]
-						
-						2. 등록 버튼 클릭 시, 게시글 등록(boardInsert.jsp)을 진행해주세요.
-						3. 목록 버튼 클릭 시, 게시판 목록 페이지(boardList.jsp)로 이동해주세요
-					
-					 -->
+						 -->
+						<h3>게시글 등록</h3>
+					 	<form action="boardInsert.jsp" method="post" enctype="multipart/form-data">
+					 		제목 <input type="text" name="title"><br>
+					 		내용 <input type="text" name="content"><br>
+					 		파일 <input type="file" name="filename"><br>
+					 		<button>등록</button>
+					 		<button type="button" onclick="location.href='boardList.jsp'">목록</button>
+					 	</form>
                     </div>
                 </div>
             </div>

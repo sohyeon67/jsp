@@ -43,6 +43,8 @@
 							인증에 실패하였습니다!
 							[ 로그인 페이지 이동  ]
 						-->
+						<h3>인증에 실패하였습니다!</h3>
+						<p><button type="button" onclick="location.href='login.jsp'">로그인 페이지 이동</button></p>
                     </div>
                 </div>
             </div>

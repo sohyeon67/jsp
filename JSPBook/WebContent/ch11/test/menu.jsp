@@ -35,18 +35,21 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-					<!-- 
-						1. 메뉴 페이지를 작성해주세요.
-						
-						[출력 예시]
-						
-						메뉴
-						_____________________
-						[  게시판    ] [  자료실    ]
-						
-						2. 게시판 버튼을 클릭 시, 게시판 페이지(boardList.jsp)로 이동합니다.
-						3. 자료실 버튼을 클릭 시, 자료실 페이지(dropbox.jsp)로 이동합니다.  
-					 -->
+						<!-- 
+							1. 메뉴 페이지를 작성해주세요.
+							
+							[출력 예시]
+							
+							메뉴
+							_____________________
+							[  게시판    ] [  자료실    ]
+							
+							2. 게시판 버튼을 클릭 시, 게시판 페이지(boardList.jsp)로 이동합니다.
+							3. 자료실 버튼을 클릭 시, 자료실 페이지(dropbox.jsp)로 이동합니다.  
+						 -->
+					 	<h4>메뉴를 선택해주세요!!</h4>
+					 	<p>1. <button type="button" onclick="location.href='boardList.jsp'">게시판</button></p>
+					 	<p>2. <button type="button" onclick="location.href='dropbox.jsp'">자료실</button></p>
                     </div>
                 </div>
             </div>

@@ -43,6 +43,11 @@
 							비밀번호 : _________
 							[ 로그인  ]
 						 -->
+						 <form action="j_security_check" method="post">
+							아이디 : <input type="text" name="j_username" ><br>
+							비밀번호 : <input type="text" name="j_password" ><br>
+							<input type="submit" value="로그인" >
+						</form>
                     </div>
                 </div>
             </div>

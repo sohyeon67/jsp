@@ -35,11 +35,12 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content-left wow fadeInLeft" data-wow-delay=".3s">
-					<!-- 
-						1. 게시글 등록을 처리해주세요.
-							> 게시글 등록 성공 시, 상세보기 페이지(boardView.jsp)로 이동해주세요.
-							> 게시글 등록 실패 시, 에러 페이지(exceptionBoard_error.jsp)로 이동해주세요.
-					 -->
+						<!-- 
+							1. 게시글 등록을 처리해주세요.
+								> 게시글 등록 성공 시, 상세보기 페이지(boardView.jsp)로 이동해주세요.
+								> 게시글 등록 실패 시, 에러 페이지(exceptionBoard_error.jsp)로 이동해주세요.
+						 -->
+					 	
                     </div>
                 </div>
             </div>
