@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <head>
@@ -9,16 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<%@ include file="/pageModule/headPart.jsp" %>
 </head>
-<script>
-<%
-	String fail = request.getParameter("fail");
-	if(fail != null) {
-%>
-		alert("로그인 실패!");
-<%
-	}
-%>
-</script>
 <body>
 	<%@ include file="/pageModule/header.jsp" %>
 
@@ -55,9 +46,20 @@
 							2. 로그인 처리는 login_process.jsp 로 요청해주세요.
 							> 회원가입을 진행하지 않고, 특정 아이디/비밀번호를 정해서 로그인 처리해주세요.
 						 -->
+						 <%
+						 	String msg = (String) request.getAttribute("msg");
+						 	if(msg != null) {
+						 %>
+						 	<c:set value="<%=msg %>" var="message" />
+						 	<script type="text/javascript">
+						 		alert("${message}");
+						 	</script>
+						 <%
+						 	}
+						 %>
 						 <form action="login_process.jsp" method="post">
-						 	아이디 : <input type="text" name="id" ><br>
-						 	비밀번호 : <input type="text" name="pw" ><br>
+						 	아이디 : <input type="text" name="mem_id" ><br>
+						 	비밀번호 : <input type="text" name="mem_pw" ><br>
 						 	<input type="submit" value="로그인" >
 						 </form>
                     </div>

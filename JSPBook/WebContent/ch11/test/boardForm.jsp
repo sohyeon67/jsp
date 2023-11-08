@@ -58,8 +58,8 @@
 					 	<form action="boardInsert.jsp" method="post" enctype="multipart/form-data">
 					 		제목 <input type="text" name="title"><br>
 					 		내용 <input type="text" name="content"><br>
-					 		파일 <input type="file" name="filename"><br>
-					 		<button>등록</button>
+					 		파일 <input type="file" name="boardfile"><br>
+					 		<button type="submit">등록</button>
 					 		<button type="button" onclick="location.href='boardList.jsp'">목록</button>
 					 	</form>
                     </div>

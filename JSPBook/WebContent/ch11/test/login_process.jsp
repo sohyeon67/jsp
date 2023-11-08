@@ -44,13 +44,16 @@
 						> 로그인 실패 시, login.jsp로 이동합니다.
 					 -->
 					 <%
-					 	String id = request.getParameter("id");
-					 	String pw = request.getParameter("pw");
+					 	request.setCharacterEncoding("UTF-8");
+					 
+					 	String id = request.getParameter("mem_id");
+					 	String pw = request.getParameter("mem_pw");
 					 	
 					 	if(id.equals("a001") && pw.equals("1234")) {
 					 		response.sendRedirect("menu.jsp");
 					 	} else {
-					 		response.sendRedirect("login.jsp?fail=1");
+					 		request.setAttribute("msg", "로그인 실패!");
+					 		request.getRequestDispatcher("login.jsp").forward(request, response);
 					 	}
 					 %>
                     </div>

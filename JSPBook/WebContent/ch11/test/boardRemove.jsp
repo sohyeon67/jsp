@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.ch11.BoardRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -46,6 +47,13 @@
 							> 삭제 성공 후, 상세보기 페이지(boardList.jsp)로 이동해주세요.
 							> 삭제 실패 후, 에러 페이지(exceptionBoard_error.jsp)로 이동해주세요.
 					 -->
+					 <%
+					 	int boardNo = Integer.parseInt(request.getParameter("no"));
+					 	BoardRepository dao = BoardRepository.getInstance();
+					 	dao.deleteBoard(boardNo);
+					 	
+					 	response.sendRedirect("boardList.jsp");
+					 %>
                     </div>
                 </div>
             </div>

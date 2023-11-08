@@ -1,3 +1,13 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="org.apache.commons.fileupload.FileItem"%>
+<%@page import="kr.or.ddit.ch11.BoardVO"%>
+<%@page import="kr.or.ddit.ch11.BoardRepository"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="org.apache.commons.fileupload.DiskFileUpload"%>
+<%@page import="java.io.File"%>
+<%@page import="kr.or.ddit.ch11.BoardFileVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -40,7 +50,89 @@
 								> 게시글 등록 성공 시, 상세보기 페이지(boardView.jsp)로 이동해주세요.
 								> 게시글 등록 실패 시, 에러 페이지(exceptionBoard_error.jsp)로 이동해주세요.
 						 -->
-					 	
+					 	<%
+					 		request.setCharacterEncoding("UTF-8");
+					 		
+					 		String realFolder = request.getServletContext().getRealPath("/ch11/test/images");
+					 		String encType = "UTF-8";
+					 		
+					 		int maxSize = 5 * 1024 * 1024;
+					 		
+					 		File folder = new File(realFolder);
+					 		if(!folder.exists()) {
+					 			folder.mkdirs();
+					 		}
+					 		
+					 		DiskFileUpload upload = new DiskFileUpload();
+					 		upload.setSizeMax(1000000);
+					 		upload.setSizeThreshold(maxSize);
+					 		upload.setRepositoryPath(realFolder);
+					 		
+					 		List items = upload.parseRequest(request);
+					 		Iterator params = items.iterator();
+					 		
+					 		int no = 0;
+					 		String title = "";
+					 		String content = "";
+					 		String writer = "a001";
+					 		String regDate = "";
+					 		int hit = 0;
+					 		
+					 		BoardFileVO fileVO = new BoardFileVO();
+					 		String contentType = "";
+					 		long fileSize = 0;
+					 		String fileName = "";
+					 		
+					 		while(params.hasNext()) {
+					 			FileItem item = (FileItem) params.next();
+					 			
+					 			if(item.isFormField()) {
+					 				String fieldName = item.getFieldName();
+					 				
+					 				if(fieldName.equals("title")) {
+					 					title = item.getString(encType);
+					 				} else if(fieldName.equals("content")) {
+					 					content = item.getString(encType);
+					 				}
+					 			} else {
+					 				contentType = item.getContentType();
+					 				fileSize = item.getSize();
+					 				fileName = item.getName();
+					 				
+					 				fileVO.setContentType(contentType);
+					 				fileVO.setFileSize(fileSize);
+					 				fileVO.setFileName(fileName);
+					 				
+					 				File saveFile = new File(realFolder + "/" + fileName);
+					 				item.write(saveFile);
+					 			}
+					 		}
+					 		
+					 		BoardRepository dao = BoardRepository.getInstance();
+					 		BoardVO board = new BoardVO();
+					 		
+					 		no = dao.getNo();
+					 		no++;
+					 		
+					 		fileVO.setNo(no);
+					 		
+					 		
+					 		board.setNo(no);
+					 		board.setTitle(title);
+					 		board.setContent(content);
+					 		board.setWriter(writer);
+					 		
+					 		regDate = dao.getCurrentTime();
+					 		board.setRegDate(regDate);
+					 		
+					 		board.setHit(hit);
+					 		board.setFileVO(fileVO);
+					 		
+					 		dao.addBoard(board);
+					 		
+					 		response.sendRedirect("boardView.jsp?no=" + no);
+					 		
+					 	%>
                     </div>
                 </div>
             </div>

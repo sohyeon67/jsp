@@ -80,9 +80,9 @@
 						 -->
 						 <h4>메뉴 박스</h4>
 						 <hr>
-						 <button>게시판</button>
-						 <button>자료실</button>
-						 <button>로그아웃</button>
+						 <button type="button" onclick="location.href='boardList.jsp'">게시판</button>
+						 <button type="button" onclick="location.href='dropbox.jsp'">자료실</button>
+						 <button type="button" onclick="location.href='login.jsp'">로그아웃</button>
 						 <hr>
 						 <%
 						 	BoardRepository dao = BoardRepository.getInstance();
@@ -97,7 +97,8 @@
 					 			<th>조회수</th>
 					 		</tr>
 					 		<c:set value="<%=listOfBoard %>" var="list" />
-					 		<c:if test="${empty list}">
+					 		
+					 		<c:if test="${empty list }">
 					 			<tr>
 					 				<th colspan="5">조회하실 게시글이 존재하지 않습니다.</th>
 					 			</tr>
@@ -105,11 +106,11 @@
 					 		<c:if test="${not empty list}">
 					 			<c:forEach items="${list }" var="board">
 					 				<tr>
-						 				<td></td>
-						 				<td></td>
-						 				<td></td>
-						 				<td></td>
-						 				<td></td>
+						 				<td>${board.no }</td>
+						 				<td>${board.title }</td>
+						 				<td>${board.writer }</td>
+						 				<td>${board.regDate }</td>
+						 				<td>${board.hit }</td>
 						 			</tr>
 					 			</c:forEach>
 					 		</c:if>

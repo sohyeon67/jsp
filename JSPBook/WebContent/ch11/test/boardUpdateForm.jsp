@@ -1,4 +1,8 @@
+<%@page import="kr.or.ddit.ch11.BoardFileVO"%>
+<%@page import="kr.or.ddit.ch11.BoardVO"%>
+<%@page import="kr.or.ddit.ch11.BoardRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <head>
@@ -51,6 +55,44 @@
 						2. 수정 버튼 클릭 시, 게시글 수정(boardUpdate.jsp)을 진행해주세요.
 						3. 목록 버튼 클릭 시, 목록 페이지(boardList.jsp)로 이동해주세요. 
 					 -->
+					 <%
+					 		int boardNo = Integer.parseInt(request.getParameter("no"));
+					 		
+					 		BoardRepository dao = BoardRepository.getInstance();
+					 		BoardVO board = dao.getBoardById(boardNo);
+					 		
+					 		BoardFileVO fileVO = board.getFileVO();
+					 	%>
+						<c:set value="<%=boardNo %>" var="no" />
+					 	<c:set value="<%=board %>" var="board" />
+					 	<c:set value="<%=fileVO %>" var="file" />
+					 	<form action="boardUpdate.jsp" method="post" enctype="multipart/form-data">
+					 		<input type="hidden" name="no" value="<%=boardNo %>">
+						 	<table class='table table-bordered'>
+						 		<tr>
+						 			<td width="20%">제목</td>
+						 			<td><input type="text" id="title" name="title" value="${board.title }"></td>
+						 		</tr>
+						 		<tr>
+						 			<td>내용</td>
+						 			<td><textarea cols="30" rows="5" name="content">${board.content }</textarea></td>
+						 		</tr>
+						 		<tr>
+						 			<td>파일</td>
+						 			<td><input type="file" name="filename"></td>
+						 		</tr>
+						 		<tr>
+						 			<td>첨부파일 내용</td>
+						 			<td>${file.fileName }</td>
+						 		</tr>
+						 		<tr>
+						 			<td colspan="2">
+									 	<button type="submit">수정</button>
+									 	<button type="button" onclick="location.href='boardView.jsp?no=${no}'">취소</button>
+						 			</td>
+						 		</tr>
+						 	</table>
+					 	</form>
                     </div>
                 </div>
             </div>

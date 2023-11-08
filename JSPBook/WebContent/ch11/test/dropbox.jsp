@@ -1,4 +1,8 @@
+<%@page import="kr.or.ddit.ch11.BoardVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.or.ddit.ch11.BoardRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <head>
@@ -51,6 +55,40 @@
 						
 						목록 
 					 -->
+					 	<h4>메뉴 박스</h4>
+						<hr>
+						<button type="button" onclick="location.href='boardList.jsp'">게시판</button>
+						<button type="button" onclick="location.href='dropbox.jsp'">자료실</button>
+						<button type="button" onclick="location.href='login.jsp'">로그아웃</button>
+						<hr>
+						 
+						<h4>자료실</h4>
+						<hr>
+						<%
+							BoardRepository dao = BoardRepository.getInstance();
+							ArrayList<BoardVO> listOfBoard = dao.selectBoardList();
+						%>
+						<table class='table table-bordered'>
+						<c:set value="<%=listOfBoard %>" var="list" />
+						<c:if test="${empty list }">
+							<tr>
+								<th>조회하실 자료가 존재하지 않습니다.</th>
+							</tr>
+						</c:if>
+						<c:if test="${not empty list}">
+							<c:forEach items="${list }" var="board">
+								<tr>
+									<td>
+										<div style="width:300px;">
+										<img alt="${board.fileVO.fileName }" src="${pageContext.request.contextPath }/ch11/test/images/${board.fileVO.fileName }" width="10%" height="10%">
+										</div>
+										파일명 : <a href="${pageContext.request.contextPath }/ch11/test/images/${board.fileVO.fileName }" download>${board.fileVO.fileName }</a><br>
+										크기 : ${board.fileVO.fileSize }<br>
+									</td>
+								</tr>
+							</c:forEach>
+						</c:if>
+						</table>
                     </div>
                 </div>
             </div>
