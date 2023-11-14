@@ -9,17 +9,6 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%@ include file="/pageModule/headPart.jsp" %>
-     <style>
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .highlight {
-            animation: rotate 3s infinite linear;
-            color: blue;
-        }
-    </style>
 </head>
 
 <body>

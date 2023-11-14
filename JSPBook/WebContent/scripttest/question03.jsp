@@ -300,60 +300,6 @@
 </body>
 <script type="text/javascript">
 $(function() {
-/*
-	// element.data("menu") 돌체라떼 가져와짐
-	// 카페 포스기기 만들어보기
-	// 포스 메뉴판을 보고 메뉴를 추가하여 주문한 내역과 금액을 출력해보자
-	var dataArr = new Array();		// 주문시 음료를 저장할 배열 공간
-	var countArr = new Array();		// 주문시 저장한 음료의 카운트 수 배열 공간
-	
-	var totalPrice = 0;
-	var html = "";
-	
-	
-
-	$("td").on("click", function() {
-		var menuData = $(this).find("p").data("menu");
-        var menuPrice = parseInt($(this).find("code").text());
-
-        if(dataArr == null) {
-        	dataArr[0] = menuData;
-        } else {
-	        dataArr.push(menuData);
-        }
-        alert(dataArr + "menuData" + menuData + "가격" + menuPrice);
-        
-        
-        for(i=0; i<dataArr.length; i++) {
-        	if(dataArr[i] === menuData) {
-        		countArr[i] += 1;
-        		alert("있었음" + countArr);
-        	} else {
-        		countArr.push(1);
-        		alert(countArr);
-        	}
-        }
-        
-        
-        
-        for(j=0; j<dataArr.length; j++) {
-        	html += `
-        		<tr>
-	        		<td>${dataArr[i]}</td>
-	        		<td>${countArr[i]}</td>
-	        		<td>${menuPrice*countArr[i]}</td>
-	        	</tr>
-        	`;
-        }
-        
-        $("#order-table").html(html);
-        
-        
-      
-    });
-*/
-	
-
 	// element.data("menu") 돌체라떼 가져와짐
 	// 카페 포스기기 만들어보기
 	// 포스 메뉴판을 보고 메뉴를 추가하여 주문한 내역과 금액을 출력해보자
